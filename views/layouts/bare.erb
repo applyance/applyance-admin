@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="bare <%= yield_content :html_class %>">
+  <head>
+    <title>Applyance Admin</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7222252/709524/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/css/admin.css" />
+  </head>
+  <body>
+    <% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

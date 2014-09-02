@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Applyance Admin</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7222252/709524/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/css/admin.css" />
+  </head>
+  <body
+      ng-app="Admin"
+      ng-controller="AppCtrl">
+
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="/accounts" class="nav__link">Accounts</a>
+        </li>
+        <li class="nav__item">
+          <a href="/entities" class="nav__link">Entities</a>
+        </li>
+        <li class="nav__item">
+          <a href="/domains" class="nav__link">Domains</a>
+        </li>
+        <li class="nav__item">
+          <a href="/definitions" class="nav__link">Definitions</a>
+        </li>
+        <li class="nav__item">
+          <a href="/accounts/logout" class="nav__link" target="_self">Log Out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="main-wrap">
+      <main class="main" ng-view></main>
+    </div>
+
+    <script type="text/javascript" src="/scripts/admin.js"></script>
+    <script>
+      var app = angular.module('AdminConfig', []);
+      app.run();
+      app.constant('me', <%= JSON.dump(@me) %>);
+      app.constant('apiHost', '<%= @api_host %>');
+      app.constant('apiKey', '<%= @api_key %>');
+    </script>
+
+  </body>
+</html>

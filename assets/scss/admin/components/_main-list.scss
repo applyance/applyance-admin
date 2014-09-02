@@ -1,0 +1,10 @@
+.main-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-list__item {
+  padding: 24px 12px;
+  border-bottom: 1px solid rgba(black, .1);
+}

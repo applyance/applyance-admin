@@ -1,0 +1,126 @@
+/* Settings Inputs */
+
+.settings-inputs__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.settings-inputs__item {
+  margin-top: 36px;
+  &:first-child { margin-top: 0; }
+}
+
+.settings-inputs__tray {
+  margin-top: 48px;
+  padding-left: 0;
+  @media only screen and (min-width : 660px) {
+    padding-left: 200px;
+  }
+}
+
+.settings-inputs__label {
+  display: block;
+  padding: 15px 0;
+  font-size: 16px;
+
+  @media only screen and (min-width : 660px) {
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
+  }
+}
+
+.settings-inputs__field {
+  display: inline-block;
+}
+
+.settings-inputs__field--data {
+  @extend .settings-inputs__field;
+  padding: 12px 18px;
+
+  font-size: 16px;
+  line-height: 1.4;
+
+  color: $color-text;
+}
+
+.settings-inputs__note {
+  font-size: 14px;
+  padding: 12px 22px;
+  max-width: 353px;
+  line-height: 1.4;
+}
+
+input,
+select,
+textarea,
+.radio,
+.rich-editor {
+  margin: 0;
+  padding: 12px 18px;
+  width: 100%;
+  max-width: 360px;
+
+  font-size: 16px;
+  line-height: 1.4;
+
+  color: $color-text;
+  outline: none;
+  border: 4px solid $color-gray-rgba;
+  border-radius: 5px;
+  background-color: white;
+
+  @include appearance(none);
+  @include transition(border-color 200ms ease-in-out);
+
+  &:focus {
+    border-color: rgba($color-gray-rgba, .15);
+  }
+  &.is-thin {
+    border-width: 2px;
+  }
+}
+
+/* Button Group */
+
+.radio-group {
+  font-size: 0;
+}
+
+.radio {
+  width: auto;
+  border-radius: 0;
+  border-left: 1px solid $color-gray-rgba;
+  border-right: 1px solid $color-gray-rgba;
+
+  @include transition(color 200ms ease-in-out);
+
+  &:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-left: 4px solid $color-gray-rgba;
+  }
+  &:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-right: 4px solid $color-gray-rgba;
+  }
+  &.is-selected {
+    color: $color-accent;
+  }
+  &:focus {
+    border-color: $color-gray-rgba;
+    color: $color-accent;
+  }
+}
+
+.radio {
+  &.is-selected.spot-status--paused {
+    color: $color-brand;
+  }
+  &.is-selected.spot-status--closed {
+    color: #ef4d37;
+  }
+}

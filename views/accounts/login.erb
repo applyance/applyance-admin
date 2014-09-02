@@ -1,0 +1,38 @@
+<form action="/accounts/login" method="post" class="login">
+
+  <div>
+    <a href="/" class="login__logo">
+      <img src="/img/logo.blue.png" class="login__logo__img" />
+    </a>
+    <span class="login__admin-tag">ADMINISTRATION</span>
+  </div>
+
+  <% if @errors %>
+  <ul class="login__errors">
+    <% @errors.each do |error| %>
+    <li class="login__errors__item">
+      <%= error %>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <ul class="login__fields">
+    <li class="login__field">
+      <input id="email" name="account[email]" type="email" placeholder="Email" autofocus>
+    </li>
+    <li class="login__field">
+      <input id="password" name="account[password]" type="password" placeholder="Password">
+    </li>
+  </ul>
+
+  <ul class="login__tray">
+    <li class="login__tray__item">
+      <% if session[:redirect_to] %>
+      <input type="hidden" name="redirect_to" value="<%= session[:redirect_to] %>" />
+      <% end %>
+      <button class="btn--base login__submit" type="submit">Sign In</button>
+    </li>
+  </ul>
+
+</form>
