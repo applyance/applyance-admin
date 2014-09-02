@@ -1,6 +1,6 @@
 lock '3.2.1'
 
-set :application, 'Applyance API'
+set :application, 'Applyance Admin'
 set :scm, :git
 set :linked_dirs, %w{bin log tmp/pids}
 set :keep_releases, 5

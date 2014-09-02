@@ -54,7 +54,7 @@ gulp.task('watchify', function() {
       .pipe(gulp.dest(paths.script_out));
   }
 
-  // Watch for JS changes in the Review Module
+  // Watch for JS changes in the Admin Module
   adminBundler.on('update', rebundleAdmin);
 
 });
@@ -78,7 +78,7 @@ gulp.task('buildJS', function() {
   .on('error', function(e) { // log errors if they happen
     gutil.log('Browserify Error', e);
   })
-  .pipe(source('review.js'))
+  .pipe(source('admin.js'))
   .pipe(gulpif(isProduction, streamify(uglify()))) // only minify if production
   .pipe(gulp.dest(paths.script_out));
 
