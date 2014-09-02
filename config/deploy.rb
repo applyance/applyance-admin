@@ -17,7 +17,7 @@ namespace :travis do
 	task :create_release do
 		run_locally do
 			execute :mkdir, '-p', :'tmp'
-			execute "tar -cz --exclude tests --exclude vendor --exclude .git --exclude node_modules --exclude tmp/#{fetch(:release_timestamp)}.tar.gz -f tmp/#{fetch(:release_timestamp)}.tar.gz ."
+			execute "tar -cz --exclude tests --exclude vendor --exclude .git --exclude node_modules --exclude .sass-cache --exclude assets --exclude tmp/#{fetch(:release_timestamp)}.tar.gz -f tmp/#{fetch(:release_timestamp)}.tar.gz ."
 		end
 		on release_roles :all do
 			execute :mkdir, '-p', release_path
@@ -77,19 +77,6 @@ namespace :thin do
 
 end
 
-namespace :db do
-
-	desc 'Migrate database'
-	task :migrate do
-		on roles(:app), in: :sequence, wait: 5 do
-			within current_path do
-				execute :bundle, :exec, :rake, '-f', 'db/migrate.rake', "db:migrate[#{fetch(:stage)}]"
-			end
-		end
-	end
-
-end
-
 namespace :deploy do
 
 	desc 'Use Travis'
@@ -98,7 +85,6 @@ namespace :deploy do
 	end
 
 	before :starting, :use_travis
-	after :published, "db:migrate"
 	after :finished, "thin:restart"
 
 end
