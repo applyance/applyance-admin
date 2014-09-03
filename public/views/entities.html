@@ -1,6 +1,10 @@
+<h1 class="group top-header">
+  Entities
+</h1>
+
 <ul class="main-list">
   <li class="main-list__item" ng-repeat="entity in entities">
-    <div>{{ entity.name }} <span ng-if="entity.parent">{{ entity.parent.name }}</span></div>
+    <div><strong>{{ entity.name }}</strong> <span ng-if="entity.parent">{{ entity.parent.name }}</span></div>
     <div>Created on {{ entity.created_at | aplMoment: 'MMM. Do YYYY, h:mm a' }}</div>
   </li>
 </ul>

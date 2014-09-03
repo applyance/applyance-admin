@@ -9,5 +9,11 @@ module.exports = angular.module('Admin')
         $scope.domains = domains.plain();
       });
 
+      $scope.remove = function(domain) {
+        ApplyanceAPI.deleteDomain(domain.id).then(function() {
+          $scope.domains.splice($scope.domains.indexOf(domain), 1);
+        });
+      };
+
     }
   ]);

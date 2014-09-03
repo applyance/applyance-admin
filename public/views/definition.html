@@ -1,3 +1,7 @@
+<h1 class="group top-header">
+  Manage Definition
+</h1>
+
 <form>
   <ul class="settings-inputs__list">
     <li class="settings-inputs__item">
@@ -11,6 +15,20 @@
     <li class="settings-inputs__item">
       <label class="settings-inputs__label">Description</label>
       <textarea ng-model="definition.description"></textarea>
+    </li>
+    <li class="settings-inputs__item">
+      <label class="settings-inputs__label">Type</label>
+      <div class="selector">
+        <select ng-model="definition.type" ng-options="type for type in ['textarea', 'text']"></select>
+      </div>
+    </li>
+    <li class="settings-inputs__item">
+      <label class="settings-inputs__label">Domain</label>
+      <div class="selector">
+        <select ng-model="domain" ng-options="domain as domain.name for domain in domains">
+          <option value="">None</option>
+        </select>
+      </div>
     </li>
   </ul>
   <div class="settings-inputs__tray">

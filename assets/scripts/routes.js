@@ -13,13 +13,25 @@ module.exports = function($routeProvider, $locationProvider, me, $routeParams) {
       templateUrl: 'views/definitions.html',
       controller: 'DefinitionsCtrl'
     })
+    .when('/definitions/new', {
+      templateUrl: 'views/definition.html',
+      controller: 'NewDefinitionCtrl'
+    })
     .when('/definitions/:id', {
       templateUrl: 'views/definition.html',
-      controller: 'DefinitionCtrl'
+      controller: 'EditDefinitionCtrl'
     })
     .when('/domains', {
       templateUrl: 'views/domains.html',
       controller: 'DomainsCtrl'
+    })
+    .when('/domains/new', {
+      templateUrl: 'views/domain.html',
+      controller: 'NewDomainCtrl'
+    })
+    .when('/domains/:id', {
+      templateUrl: 'views/domain.html',
+      controller: 'EditDomainCtrl'
     })
     .otherwise({
       redirectTo: '/accounts'

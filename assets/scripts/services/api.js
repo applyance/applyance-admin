@@ -31,6 +31,18 @@ module.exports = angular.module('Admin')
       this.getDomains = function() {
         return Restangular.all("domains").getList();
       };
+      this.getDomain = function(id) {
+        return Restangular.one("domains", id).get();
+      };
+      this.putDomain = function(domain) {
+        return Restangular.one("domains", domain.id).customPUT(domain);
+      };
+      this.createDomain = function(domain) {
+        return Restangular.all("domains").post(domain);
+      };
+      this.deleteDomain = function(id) {
+        return Restangular.one("domains", id).remove();
+      };
 
       // Accounts
       this.getAccounts = function() {
@@ -66,6 +78,9 @@ module.exports = angular.module('Admin')
       };
 
       // Citizens
+      this.getAllCitizens = function() {
+        return Restangular.all("citizens").getList();
+      };
       this.getCitizens = function(entityId) {
         return Restangular.one("entities", entityId).all("citizens").getList();
       };
@@ -199,6 +214,12 @@ module.exports = angular.module('Admin')
       };
       this.postEntityDefinition = function(id, definition) {
         return Restangular.one('entities', id).all('definitions').post(definition);
+      };
+      this.postDomainDefinition = function(id, definition) {
+        return Restangular.one('domains', id).all('definitions').post(definition);
+      };
+      this.postDefinition = function(definition) {
+        return Restangular.all('definitions').post(definition);
       };
 
       // Blueprints
