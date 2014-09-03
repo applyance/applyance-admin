@@ -1,6 +1,10 @@
+<h1 class="group top-header">
+  Accounts
+</h1>
+
 <ul class="main-list">
   <li class="main-list__item" ng-repeat="account in accounts">
-    <div>{{ account.name }}, [{{ account.roles }}]</div>
+    <div><strong>{{ account.name }}</strong>, [{{ account.roles }}]</div>
     <div>Created on {{ account.created_at | aplMoment: 'MMM. Do YYYY, h:mm a' }}</div>
   </li>
 </ul>

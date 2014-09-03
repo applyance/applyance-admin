@@ -9,5 +9,11 @@ module.exports = angular.module('Admin')
         $scope.definitions = definitions.plain();
       });
 
+      $scope.remove = function(definition) {
+        ApplyanceAPI.deleteDefinition(definition.id).then(function() {
+          $scope.definitions.splice($scope.definitions.indexOf(definition), 1);
+        });
+      };
+
     }
   ]);

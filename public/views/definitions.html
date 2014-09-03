@@ -1,5 +1,22 @@
+<h1 class="group top-header">
+  Definitions
+  <div class="header-action-wrap">
+    <a href="/definitions/new" class="header-action btn--primary">Create Definition</a>
+  </div>
+</h1>
+
 <ul class="main-list">
-  <li class="main-list__item" ng-repeat="definition in definitions">
-    <a href="/definitions/{{ definition.id }}">{{ definition.label }}</a>
+  <li class="main-list__item group" ng-repeat="definition in definitions">
+    <div class="f--left">
+      <a href="/definitions/{{ definition.id }}"><strong>{{ definition.label }}</strong></a>
+      <span ng-if="definition.domain">[{{ definition.domain.name }}]</span>
+    </div>
+    <div class="f--right">
+      <a href="" class="remove-link"
+          confirmed-click="remove(definition)"
+          ng-confirm-click="Are you sure you want to delete this definition?">
+        Remove
+      </a>
+    </div>
   </li>
 </ul>

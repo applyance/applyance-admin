@@ -25,8 +25,13 @@ strong {
 }
 
 a {
-  color: $color-accent;
+  color: $color-base;
   @include transition(color 200ms ease-in-out);
+}
+
+.remove-link {
+  display: inline-block;
+  color: $color-red;
 }
 
 *, *:before, *:after {

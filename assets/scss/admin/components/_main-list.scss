@@ -5,6 +5,8 @@
 }
 
 .main-list__item {
-  padding: 24px 12px;
-  border-bottom: 1px solid rgba(black, .1);
+  padding: 24px 0;
+  border: 0 solid rgba(black, .1);
+  border-bottom-width: 1px;
+  &:first-child { border-top-width: 1px; }
 }

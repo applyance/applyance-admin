@@ -27,6 +27,11 @@ require("./services/flash");
 require("./controllers/app");
 require("./controllers/accounts");
 require("./controllers/entities");
-require("./controllers/domains");
-require("./controllers/definitions");
-require("./controllers/definition");
+
+require("./controllers/domains/domains");
+require("./controllers/domains/editDomain");
+require("./controllers/domains/newDomain");
+
+require("./controllers/definitions/definitions");
+require("./controllers/definitions/editDefinition");
+require("./controllers/definitions/newDefinition");

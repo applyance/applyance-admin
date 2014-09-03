@@ -1,5 +1,21 @@
+<h1 class="group top-header">
+  Domains
+  <div class="header-action-wrap">
+    <a href="/domains/new" class="header-action btn--primary">Create Domain</a>
+  </div>
+</h1>
+
 <ul class="main-list">
-  <li class="main-list__item" ng-repeat="domain in domains">
-    {{ domain.name }}
+  <li class="main-list__item group" ng-repeat="domain in domains">
+    <div class="f--left">
+      <a href="/domains/{{ domain.id }}"><strong>{{ domain.name }}</strong></a>
+    </div>
+    <div class="f--right">
+      <a href="" class="remove-link"
+          confirmed-click="remove(domain)"
+          ng-confirm-click="Are you sure you want to delete this domain?">
+        Remove
+      </a>
+    </div>
   </li>
 </ul>
