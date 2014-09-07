@@ -9,7 +9,8 @@ module.exports = angular.module('Admin')
       };
 
       $scope.definition = {
-        type: 'textarea'
+        type: 'textarea',
+        is_core: false
       };
 
       $scope.domain = null;

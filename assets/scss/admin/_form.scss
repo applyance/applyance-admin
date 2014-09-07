@@ -53,6 +53,27 @@
   line-height: 1.4;
 }
 
+.settings-inputs__options {
+  display: inline-block;
+  max-width: 360px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-inputs__options__item {
+  font-size: 0;
+  margin-top: 24px;
+  &:first-child { margin-top: 0; }
+  label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 12px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+}
+
 input,
 select,
 textarea,
@@ -81,6 +102,51 @@ textarea,
   &.is-thin {
     border-width: 2px;
   }
+}
+
+input[type="checkbox"] {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  &:hover {
+    border-color: rgba($color-gray-rgba, .15);
+  }
+  &:after {
+    content: '\E435';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+
+    font-size: 18px;
+    font-family: 'ui-font-solid';
+    speak: none;
+    font-style: normal;
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    -o-font-feature-settings: "liga";
+    font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 22px;
+
+    color: black;
+    opacity: 0;
+
+    @include transition(opacity 200ms ease-in-out);
+  }
+  &:hover:after { opacity: .2; }
+  &:checked:after { opacity: 1; }
 }
 
 /* Button Group */
