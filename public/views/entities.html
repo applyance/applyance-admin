@@ -4,7 +4,7 @@
 
 <ul class="main-list">
   <li class="main-list__item" ng-repeat="entity in entities">
-    <div><strong>{{ entity.name }}</strong> <span ng-if="entity.parent">{{ entity.parent.name }}</span></div>
+    <div><strong>{{ entity.name }}</strong> <span ng-if="entity.parent">< {{ entity.parent.name }}</span> <span ng-if="entity.domain">[{{ entity.domain.name }}]</span></div>
     <div>Created on {{ entity.created_at | aplMoment: 'MMM. Do YYYY, h:mm a' }}</div>
   </li>
 </ul>
