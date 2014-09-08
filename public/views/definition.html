@@ -30,6 +30,15 @@
         </select>
       </div>
     </li>
+    <li class="settings-inputs__item">
+      <label class="settings-inputs__label">Options</label>
+      <ul class="settings-inputs__options">
+        <li class="settings-inputs__options__item">
+          <input id="is-core" type="checkbox" ng-model="definition.is_core">
+          <label for="is-core">Is this a core definition?</label>
+        </li>
+      </ul>
+    </li>
   </ul>
   <div class="settings-inputs__tray">
     <button class="btn--primary" ng-click="save()">{{ form.saving ? 'Saving' : 'Save' }}</button>

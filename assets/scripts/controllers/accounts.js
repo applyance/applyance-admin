@@ -12,5 +12,17 @@ module.exports = angular.module('Admin')
         });
       });
 
+      $scope.citizens = [];
+      ApplyanceAPI.getAllCitizens().then(function(citizens) {
+        $scope.citizens = citizens.plain();
+      });
+
+      $scope.getCitizen = function(account) {
+        var citizen = _.find($scope.citizens, function(citizen) {
+          return citizen.account.id == account.id;
+        });
+        return citizen;
+      };
+
     }
   ]);

@@ -2,15 +2,16 @@ language: ruby
 rvm:
 - 2.0.0
 before_install:
-- openssl aes-256-cbc -k "$chicken_sandwiches" -in config/config.production.yml.enc -out config/config.yml -d
 - gem install sass
 - npm install
 - npm install -g bower
 - bower install
+before_script:
+- bundle exec rake travis:decrypt_config
 script:
 - gulp build
 after_success:
-- bundle exec cap production deploy
+- bundle exec rake travis:deploy
 env:
   global:
   - secure: Z8V/n1Y4D1rsY07HZzhgZ/6chfI1bwiKZT9qwxT5lEk8KaD6OZhcEga8MZ7sk2HJvD+vOk7qB9uV6lPlUlz5CjO7FCip1VO+kj1HSkBqLr7HbY0KbGjrFgCO7F87aw1LXtC2gR4jVt70VWOy7Bp4YiLOKBRF4J4FkMLrxVvR1Ak=

@@ -10,6 +10,10 @@
     <div class="f--left">
       <a href="/definitions/{{ definition.id }}"><strong>{{ definition.label }}</strong></a>
       <span ng-if="definition.domain">[{{ definition.domain.name }}]</span>
+      <span ng-if="definition.is_core">[Core]</span>
+      <div ng-if="definition.description">
+        {{ definition.description }}
+      </div>
     </div>
     <div class="f--right">
       <a href="" class="remove-link"
