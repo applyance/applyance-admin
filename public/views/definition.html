@@ -19,7 +19,7 @@
     <li class="settings-inputs__item">
       <label class="settings-inputs__label">Type</label>
       <div class="selector">
-        <select ng-model="definition.type" ng-options="type for type in ['textarea', 'text']"></select>
+        <select ng-model="definition.type" ng-options="type.id as type.name for type in definitionTypes"></select>
       </div>
     </li>
     <li class="settings-inputs__item">

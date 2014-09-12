@@ -12,6 +12,12 @@ module.exports = angular.module('Admin')
       $scope.originalDomain = null;
       $scope.domains = [];
 
+      $scope.definitionTypes = [
+        { id: "text", name: "Short Text" },
+        { id: "textarea", name: "Long Text" },
+        { id: "fileupload", name: "File Upload" }
+      ];
+
       $scope.onGetDomains = function(domains) {
         $scope.domains = domains.plain();
         ApplyanceAPI.getDefinition($routeParams.id).then($scope.onGetDefinition);
