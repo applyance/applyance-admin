@@ -4,6 +4,13 @@ module.exports = angular.module('Admin')
   .controller('EditDefinitionCtrl', ['$scope', '$routeParams', 'Store', 'ApplyanceAPI',
     function ($scope, $routeParams, Store, ApplyanceAPI) {
 
+      $scope.definitionTypes = [
+        { id: "text", name: "Short Text" },
+        { id: "textarea", name: "Long Text" },
+        { id: "choice", name: "Dropdown" },
+        { id: "fileupload", name: "File Upload" }
+      ];
+
       $scope.form = {
         saving: false
       };
@@ -11,12 +18,6 @@ module.exports = angular.module('Admin')
       $scope.domain = null;
       $scope.originalDomain = null;
       $scope.domains = [];
-
-      $scope.definitionTypes = [
-        { id: "text", name: "Short Text" },
-        { id: "textarea", name: "Long Text" },
-        { id: "fileupload", name: "File Upload" }
-      ];
 
       $scope.onGetDomains = function(domains) {
         $scope.domains = domains.plain();

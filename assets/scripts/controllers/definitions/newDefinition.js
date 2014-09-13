@@ -4,6 +4,13 @@ module.exports = angular.module('Admin')
   .controller('NewDefinitionCtrl', ['$scope', '$routeParams', 'Store', 'ApplyanceAPI',
     function ($scope, $routeParams, Store, ApplyanceAPI) {
 
+      $scope.definitionTypes = [
+        { id: "text", name: "Short Text" },
+        { id: "textarea", name: "Long Text" },
+        { id: "choice", name: "Dropdown" },
+        { id: "fileupload", name: "File Upload" }
+      ];
+
       $scope.form = {
         saving: false
       };
@@ -12,12 +19,6 @@ module.exports = angular.module('Admin')
         type: 'textarea',
         is_core: false
       };
-
-      $scope.definitionTypes = [
-        { id: "text", name: "Short Text" },
-        { id: "textarea", name: "Long Text" },
-        { id: "fileupload", name: "File Upload" }
-      ];
 
       $scope.domain = null;
       $scope.domains = [];

@@ -39,6 +39,19 @@
         </li>
       </ul>
     </li>
+    <li class="settings-inputs__item">
+      <label class="settings-inputs__label">Helper</label>
+      <textarea ng-model="definition.helper" json-text style="font-family:monospace;"></textarea>
+      <div class="settings-inputs__field-note">
+        Use this helper for further customization. Helper should be a JSON string representing the customization.
+        <br />
+        <br />
+For Dropdown / Multiple Choice:
+<pre>
+{"choices":["One", "Two", "Three"]}
+</pre>
+      </div>
+    </li>
   </ul>
   <div class="settings-inputs__tray">
     <button class="btn--primary" ng-click="save()">{{ form.saving ? 'Saving' : 'Save' }}</button>
