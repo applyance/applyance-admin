@@ -43,6 +43,7 @@
     <script>
       var app = angular.module('AdminConfig', []);
       app.run();
+      app.constant('client_url', '<%= Applyance::Admin.settings.client_url %>');
       app.constant('me', <%= JSON.dump(@me) %>);
       app.constant('apiHost', '<%= @api_host %>');
       app.constant('apiKey', '<%= @api_key %>');
