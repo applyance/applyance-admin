@@ -22,23 +22,16 @@ module.exports = angular.module('Admin')
         restrict: 'A',
         require: 'ngModel',
         link: function(scope, element, attr, ngModel) {
-          function into(input) {
-            if (!input || (input.length == 0)) {
-              return undefined;
-            }
-            try {
-              return JSON.parse(input);
-            } catch (e) {
-              return undefined;
-            }
-          }
           function out(data) {
             if (!data) {
               return "";
             }
-            return JSON.stringify(data);
+            if (typeof data === 'object') {
+              return JSON.stringify(data);
+            } else {
+              return data;
+            }
           }
-          ngModel.$parsers.push(into);
           ngModel.$formatters.push(out);
 
           scope.$watch(attr.ngModel, function(newValue) {

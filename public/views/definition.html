@@ -9,17 +9,31 @@
       <input type="text" ng-model="definition.name">
     </li>
     <li class="settings-inputs__item">
-      <label class="settings-inputs__label">Label</label>
-      <textarea ng-model="definition.label"></textarea>
-    </li>
-    <li class="settings-inputs__item">
-      <label class="settings-inputs__label">Description</label>
-      <textarea ng-model="definition.description"></textarea>
-    </li>
-    <li class="settings-inputs__item">
       <label class="settings-inputs__label">Type</label>
       <div class="selector">
         <select ng-model="definition.type" ng-options="type.id as type.name for type in definitionTypes"></select>
+      </div>
+    </li>
+    <li class="settings-inputs__item">
+      <label class="settings-inputs__label">{{ definition.type == 'legal' ? 'Intro' : 'Label' }}</label>
+      <textarea ng-model="definition.label"></textarea>
+    </li>
+    <li class="settings-inputs__item">
+      <label class="settings-inputs__label">{{ definition.type == 'legal' ? 'Legal Text' : 'Description' }}</label>
+      <textarea ng-model="definition.description"></textarea>
+    </li>
+    <li class="settings-inputs__item" ng-show="['shorttext', 'longtext'].indexOf(definition.type) >= 0">
+      <label class="settings-inputs__label">Placeholder</label>
+      <input type="text" ng-model="definition.placeholder">
+      <div class="settings-inputs__field-note">
+        If set, this adds placeholder text in the input element. This is only applicable to Text definition types, but is often used to provide specific guidance on the format of the input to supply.
+      </div>
+    </li>
+    <li class="settings-inputs__item">
+      <label class="settings-inputs__label">Default Position</label>
+      <input type="number" ng-model="definition.default_position">
+      <div class="settings-inputs__field-note">
+        This specifies the position on the application for this definition. Lower numbers mean that it will be closer to the top of the application.
       </div>
     </li>
     <li class="settings-inputs__item">
@@ -37,18 +51,51 @@
           <input id="is-core" type="checkbox" ng-model="definition.is_core">
           <label for="is-core">Is this a core definition?</label>
         </li>
+        <li class="settings-inputs__options__item">
+          <input id="is-default" type="checkbox" ng-model="definition.is_default">
+          <label for="is-default">Is this a default definition?</label>
+        </li>
+        <li class="settings-inputs__options__item">
+          <input id="default-is-required" type="checkbox" ng-model="definition.default_is_required">
+          <label for="default-is-required">Should users be required to answer this definition by default?</label>
+        </li>
       </ul>
     </li>
     <li class="settings-inputs__item">
       <label class="settings-inputs__label">Helper</label>
-      <textarea ng-model="definition.helper" json-text style="font-family:monospace;"></textarea>
+      <textarea json-text ng-model="definition.helper" style="font-family:monospace;font-size:12px;"></textarea>
       <div class="settings-inputs__field-note">
         Use this helper for further customization. Helper should be a JSON string representing the customization.
         <br />
         <br />
-For Dropdown / Multiple Choice:
+<strong>General:</strong>
+<pre>
+// To support multiple answers
+// Supported by most definitions
+{"repeatable":true}
+</pre>
+<br />
+<strong>Dropdown and Multiple Choice Type:</strong>
 <pre>
 {"choices":["One", "Two", "Three"]}
+</pre>
+<br />
+<strong>Multiple Choice and File Upload Type:</strong>
+<pre>
+{"selection_constraint":"single"} or
+{"selection_constraint":"multiple"}
+</pre>
+<br />
+<strong>Multiple Choice Type:</strong>
+<pre>
+{"alignment":"vertical"} or
+{"alignment":"horizontal"}
+</pre>
+<br />
+<strong>Rating:</strong>
+<pre>
+{"rating_type":"stars"} // "stars", "users", "hearts", "thumbs", or "numbers"
+{"steps":5} // 1 to 10
 </pre>
       </div>
     </li>

@@ -8,9 +8,12 @@
 <ul class="main-list">
   <li class="main-list__item group" ng-repeat="definition in definitions">
     <div class="f--left">
+      <span>[{{ definition.default_position }}]</span>
       <a href="/definitions/{{ definition.id }}"><strong>{{ definition.label }}</strong></a>
+      <span>[{{ definition.type }}]</span>
       <span ng-if="definition.domain">[{{ definition.domain.name }}]</span>
       <span ng-if="definition.is_core">[Core]</span>
+      <span ng-if="definition.is_default">[Default]</span>
       <div ng-if="definition.description">
         {{ definition.description }}
       </div>
