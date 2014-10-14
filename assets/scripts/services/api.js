@@ -64,6 +64,9 @@ module.exports = angular.module('Admin')
       }
 
       // Applications
+      this.getAllApplications = function() {
+        return Restangular.all('applications').getList();
+      };
       this.getApplications = function(entityId) {
         return Restangular.one("entities", entityId).all("applications").getList();
       };
@@ -245,6 +248,9 @@ module.exports = angular.module('Admin')
       // Datums
       this.getDatums = function(id) {
         return Restangular.one('profiles', id).all('datums').getList();
+      };
+      this.putDatum = function(datum) {
+        return Restangular.one("datums", datum.id).customPUT(datum);
       };
 
       // Spots

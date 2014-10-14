@@ -35,3 +35,6 @@ require("./controllers/domains/newDomain");
 require("./controllers/definitions/definitions");
 require("./controllers/definitions/editDefinition");
 require("./controllers/definitions/newDefinition");
+
+require("./controllers/applications/applications");
+require("./controllers/applications/application");

@@ -1,0 +1,17 @@
+<h1 class="group top-header">
+  Applications
+</h1>
+
+<ul class="main-list">
+  <li class="main-list__item group" ng-repeat="application in applications">
+    <a href="/applications/{{ application.id }}">[{{ application.id }}]</a>
+    <div class="d--inline-block">
+      <div>
+        {{ getAccount(application).name }}, {{ application.created_at | aplMoment: 'MMM. Do YYYY, h:mm a' }}
+      </div>
+      <div>
+        {{ getEntitiesString(application) }}
+      </div>
+    </div>
+  </li>
+</ul>

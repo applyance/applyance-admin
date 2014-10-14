@@ -21,6 +21,14 @@ module.exports = function($routeProvider, $locationProvider, me, $routeParams) {
       templateUrl: 'views/definition.html',
       controller: 'EditDefinitionCtrl'
     })
+    .when('/applications', {
+      templateUrl: 'views/applications.html',
+      controller: 'ApplicationsCtrl'
+    })
+    .when('/applications/:id', {
+      templateUrl: 'views/application.html',
+      controller: 'ApplicationCtrl'
+    })
     .when('/domains', {
       templateUrl: 'views/domains.html',
       controller: 'DomainsCtrl'

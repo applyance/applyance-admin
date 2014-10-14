@@ -1,0 +1,17 @@
+<h1 class="group top-header">
+  Application
+</h1>
+
+<form>
+  <ul>
+    <li ng-repeat="field in application.fields">
+      <div class="selector">
+        <select
+            ng-model="field.datum.definition.id"
+            ng-options="definition.id as definition.label for definition in definitions"
+            ng-change="changeDefinition(field)"></select>
+      </div>
+      <div>{{ field.datum.detail }}</div>
+    </li>
+  </ul>
+</form>
