@@ -12,7 +12,11 @@ module.exports = angular.module('Admin')
       $scope.application = {};
       ApplyanceAPI.getApplication($routeParams.id).then(function(application) {
         $scope.application = application.plain();
+        ApplyanceAPI.getEntityDefinitions($scope.application.entities[0].id).then(function(definitions) {
+          $scope.definitions = $scope.definitions.concat(definitions.plain());
+        });
       });
+
 
       $scope.changeDefinition = function(field) {
         ApplyanceAPI.putDatum({
